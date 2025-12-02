@@ -1,0 +1,11 @@
+.monster-card {
+  width: 180px;
+  padding: 1rem;
+  margin: 0.5rem;
+  border-radius: 12px;
+  color: #333;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  font-family: Arial;
+  display: inline-block;
+  text-align: center;
+}

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="da">
+<head>
+  <meta charset="UTF-8">
+  <title>Make your own Monster</title>
+  <link rel="stylesheet" href="CSS/containers.css">
+  <link rel="stylesheet" href="CSS/body.css">
+  <link rel="stylesheet" href="CSS/buttons.css">
+  <link rel="stylesheet" href="CSS/color-palette-and-swatch.css">
+  <link rel="stylesheet" href="CSS/monster-card.css">
+</head>
+<body>
+  <div id="app" class="app-container">
+
+  <div class="content-wrapper">
+
+    <!-- Left side: The builder -->
+    <div class="builder-container">
+
+      <h1>Make your own Monster 👽</h1>
+
+      <input type="text" id="nameInput" placeholder="Name your monster">
+
+      <div class="color-palette" id="paletteContainer"></div>
+
+      <select id="raritySelect">
+        <option value="" disabled selected hidden>Choose rarity</option>
+        <option value="common">Common</option>
+        <option value="uncommon">Uncommon</option>
+        <option value="rare">Rare</option>
+        <option value="epic">Epic</option>
+        <option value="legendary">Legendary</option>
+        <option value="mythic">Mythic</option>
+      </select>
+
+      <button id="addBtn" class="add-btn">Add monster</button>
+
+      <p id="emptyMsg">There's no monster yet 😢</p>
+      <p id="countMsg"></p>
+
+      <select id="sortSelect">
+        <option value="none">None</option>
+        <option value="name">A → Z</option>
+        <option value="rarity">Rarity</option>
+      </select>
+
+      <select id="filterSelect">
+        <option value="all">All</option>
+        <option value="common">Common</option>
+        <option value="uncommon">Uncommon</option>
+        <option value="rare">Rare</option>
+        <option value="epic">Epic</option>
+        <option value="legendary">Legendary</option>
+        <option value="mythic">Mythic</option>
+      </select>
+
+      <div id="monsterList"></div>
+
+    </div>
+
+    <!-- Right side: The preview -->
+    <div class="preview-container">
+      <h2>Monster Preview</h2>
+
+      <svg 
+        class="monster-preview-svg"
+        id="previewSVG"
+        viewBox="0 0 200 200">
+        <path 
+          d="M100 20 
+              C60 20 40 60 40 100 
+              C40 150 60 180 100 180 
+              C140 180 160 150 160 100 
+              C160 60 140 20 100 20 Z"
+          stroke="#3C4048"
+          stroke-width="8"
+        />
+      </svg>
+    </div>
+
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>

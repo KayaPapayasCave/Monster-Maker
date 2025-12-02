@@ -1,0 +1,25 @@
+.color-palette {
+  display: grid;
+  grid-template-columns: repeat(6, 30px);
+  gap: 10px;
+  margin: 10px 0 20px;
+  justify-content: center;
+}
+
+.color-swatch {
+  width: 30px;
+  height: 30px;
+  border-radius: 8px;
+  cursor: pointer;
+  border: 2px solid white;
+  box-shadow: 0 0 4px rgba(0,0,0,0.2);
+}
+
+.color-swatch:hover {
+  transform: scale(1.15);
+}
+
+.color-swatch.selected {
+  transform: scale(1.2);
+  border: 2px solid #3C4048;
+}
