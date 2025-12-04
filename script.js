@@ -1,6 +1,5 @@
 // --- DATA ---
 let newName = "";
-let newColor = "#ffffff";
 let newRarity = "";
 
 let sortMethod = "none";
@@ -14,6 +13,8 @@ const palette = [
   "#FFF3CD", "#FFF7B2", "#FFEFB5",
   "#FFF0DB", "#FFE5CC", "#FFD8B1",
 ];
+
+let newColor = palette[0];
 
 let monsters = [
   { name: "Fluffy", color: "#FFD6E8", rarity: "common" },
@@ -30,6 +31,7 @@ const paletteContainer = document.getElementById("paletteContainer");
 const monsterList = document.getElementById("monsterList");
 
 const previewSVG = document.getElementById("previewSVG");
+const previewName = document.getElementById("previewName");
 
 const emptyMsg = document.getElementById("emptyMsg");
 const countMsg = document.getElementById("countMsg");
@@ -48,6 +50,9 @@ function renderPalette() {
     swatch.addEventListener("click", () => {
       newColor = color;
       previewSVG.style.fill = newColor;
+      previewName.textContent = "Your Monster";
+      const allCards = document.querySelectorAll(".monster-card");
+      allCards.forEach(c => c.classList.remove("selected-card"));
       renderPalette();
     });
 
@@ -112,14 +117,29 @@ function renderMonsters() {
     const delBtn = document.createElement("button");
     delBtn.textContent = "Delete";
     delBtn.className = "delete-btn";
-    delBtn.addEventListener("click", () => {
+
+    delBtn.addEventListener("click", (e) => {
+      e.stopPropagation();
       monsters.splice(index, 1);
       renderMonsters();
-    });
-
-    card.append(title, badge, delBtn);
-    monsterList.appendChild(card);
   });
+
+  card.addEventListener("click", () => {
+  previewSVG.style.fill = monster.color;
+  previewName.textContent = monster.name;
+
+  const allSwatches = document.querySelectorAll(".color-swatch");
+  allSwatches.forEach(s => s.classList.remove("selected"));
+
+  const allCards = document.querySelectorAll(".monster-card");
+  allCards.forEach(c => c.classList.remove("selected-card"));
+
+  card.classList.add("selected-card");
+  });
+
+  card.append(title, badge, delBtn);
+  monsterList.appendChild(card);
+});
 }
 
 // --- Add monster ---
@@ -136,6 +156,12 @@ function addMonster() {
   nameInput.value = "";
 
   renderMonsters();
+}
+
+// --- Update preview ---
+function updatePreview() {
+  previewSVG.style.fill = newColor;
+  previewName.textContent = newName || "Your Monster";
 }
 
 // --- Event listeners ---
@@ -157,4 +183,5 @@ document.getElementById("addBtn").addEventListener("click", addMonster);
 // --- Initialize ---
 renderPalette();
 renderMonsters();
+updatePreview();
 previewSVG.style.fill = newColor;
