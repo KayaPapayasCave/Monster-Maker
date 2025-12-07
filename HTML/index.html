@@ -3,11 +3,11 @@
 <head>
   <meta charset="UTF-8">
   <title>Make your own Monster</title>
-  <link rel="stylesheet" href="CSS/containers.css">
-  <link rel="stylesheet" href="CSS/body.css">
-  <link rel="stylesheet" href="CSS/buttons.css">
-  <link rel="stylesheet" href="CSS/color-palette-and-swatch.css">
-  <link rel="stylesheet" href="CSS/monster-card.css">
+  <link rel="stylesheet" href="../CSS/containers.css">
+  <link rel="stylesheet" href="../CSS/body.css">
+  <link rel="stylesheet" href="../CSS/buttons.css">
+  <link rel="stylesheet" href="../CSS/color-palette-and-swatch.css">
+  <link rel="stylesheet" href="../CSS/monster-card.css">
 </head>
 <body>
   <div id="app" class="app-container">
@@ -61,6 +61,7 @@
     <!-- Right side: The preview -->
     <div class="preview-container">
       <h2 id="previewName">Monster Preview</h2>
+      <button id="careBtn" style="display:none;">Take care of this monster</button>
 
       <svg 
         class="monster-preview-svg"
@@ -76,9 +77,13 @@
           stroke-width="8"
         />
       </svg>
+
+      <a href="pet-care.html" id="petCareButton" class="petCareButton">Take care of this monster</a>
     </div>
 
   </div>
-  <script src="script.js"></script>
+  <script src="../JS/pet-system.js"></script>
+  <script src="../JS/pet-care.js"></script>
+  <script src="../JS/script.js"></script>
 </body>
 </html>

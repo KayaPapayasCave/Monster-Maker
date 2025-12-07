@@ -1,0 +1,18 @@
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: #3C4048;
+  margin: 0;
+}
+
+.petcare-wrapper {
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 20px;
+  background: #B2B2B2;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  text-align: center;
+}

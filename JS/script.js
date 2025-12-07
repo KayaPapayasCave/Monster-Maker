@@ -125,16 +125,18 @@ function renderMonsters() {
   });
 
   card.addEventListener("click", () => {
-  previewSVG.style.fill = monster.color;
-  previewName.textContent = monster.name;
+    previewSVG.style.fill = monster.color;
+    previewName.textContent = monster.name;
 
-  const allSwatches = document.querySelectorAll(".color-swatch");
-  allSwatches.forEach(s => s.classList.remove("selected"));
+    const allSwatches = document.querySelectorAll(".color-swatch");
+    allSwatches.forEach(s => s.classList.remove("selected"));
 
-  const allCards = document.querySelectorAll(".monster-card");
-  allCards.forEach(c => c.classList.remove("selected-card"));
+    const allCards = document.querySelectorAll(".monster-card");
+    allCards.forEach(c => c.classList.remove("selected-card"));
 
-  card.classList.add("selected-card");
+    card.classList.add("selected-card");
+
+    selectedMonster = monster;
   });
 
   card.append(title, badge, delBtn);
